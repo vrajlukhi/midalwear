@@ -6,7 +6,21 @@ const check=(req,res,next)=>{
         next()
     }
     else{
-        res.status(404).send("not found")
+        if(!name&&!grid&&!email&&!password){
+            res.status(404).send("not found")
+        }
+        else if(!name){
+            res.status(404).send("not name")
+        }
+        else if(!grid){
+            res.status(404).send("not grid")
+        }
+        else if(!email){
+            res.status(404).send("not email")
+        }
+        else if(!password){
+            res.status(404).send("not password")
+        }
     }
 }
 module.exports=check
